@@ -40,6 +40,9 @@ COPY ./visual.conf /etc/apache2/sites-available/visual.conf
 # 카피한 가상 호스트 설정 파일 심볼 링크 설정
 RUN ln -s /etc/apache2/sites-available/visual.conf /etc/apache2/sites-enabled/
 
+# 도커 컨테이너 로그 출력을 위한 덮어쓰기
+COPY ./other-vhosts-access-log.conf /etc/apache2/conf-available/other-vhosts-access-log.conf
+
 EXPOSE 80
 
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
