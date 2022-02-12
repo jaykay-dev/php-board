@@ -9,6 +9,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    command: sh -c "php /var/www/init-db.php && /usr/sbin/apache2ctl -D FOREGROUND"
     ports:
       - '8080:80'
     volumes:
